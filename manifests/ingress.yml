@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: "maycluster"
+    labels:
+        app: "maycluster"
+    annotations:
+        kubernetes.io/ingress.class: addon-http-application-routing
+spec:
+    rules:
+        - host: maycluster8650-maycluster.310105b71f7f4b1e83f2.eastus.aksapp.io
+          http:
+            paths:
+            - path: /
+              backend:
+                serviceName: "maycluster"
+                servicePort: 80
